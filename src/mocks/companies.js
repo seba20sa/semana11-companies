@@ -1,4 +1,6 @@
-[    
+"use strict";
+
+module.exports = [    
     {   "id": 1,
         "buildings": ["building 1", "unique towers", "white castle"],
         "boilers": ["a2343", "b2345"],
@@ -15,4 +17,4 @@
         "contact": 3238772355,
         "maintenanceHours": 49    
     }
-]
+];
