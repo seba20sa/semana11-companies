@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+
+import PropTypes from 'prop-types';
 
 
 // 
 export class CompanyItem extends Component {
     render() {
-        //
-        // const {id} = this.props.companies;
+        //call by id for delete and update
+        const {id} = this.props.companies;
         return (
             <div style={CompanyItemStyle}>
-                <p>Id: {this.props.companies.id}</p>                
-                <p>Buildings: {this.props.companies.buildings}</p>
-                <p>Boilers: {this.props.companies.boilers}</p>
-                <p>Name: {this.props.companies.name}</p>
-                <p>Email: {this.props.companies.email}</p>
-                <p>Contact: {this.props.companies.contact}</p>
-                <p>Maintenance hours: {this.props.companies.maintenanceHours}</p>
+                <button className="btn" onClick={this.props.DeleteItem.bind(this, id)}>x </button>
+                <ul className="list">
+                    <li>Id: {this.props.companies.id}</li>
+                    <li>Buildings: {this.props.companies.buildings}</li>
+                    <li>Boilers: {this.props.companies.boilers}</li>
+                    <li>Name: {this.props.companies.name}</li>
+                    <li>Email: {this.props.companies.email}</li>
+                    <li>Contact: {this.props.companies.contact}</li>
+                    <li>Maintenance hours: {this.props.companies.maintenanceHours}</li>                    
+                </ul>
+                
+
             </div>
         )
     }

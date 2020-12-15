@@ -1,1 +1,0 @@
-// scan the mock file and show on the render the data

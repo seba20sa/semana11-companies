@@ -1,18 +1,20 @@
 import React, { Component} from 'react';
 import CompanyItem from './CompanyItem';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 // takes params and renders them. add key values (companies' id)
 class CompaniesList extends Component {
     render() {        
         return this.props.companiesMock.map((companies) => (
-            <CompanyItem key={companies.id} companies={companies} />    
+            <CompanyItem key={companies.id} companies={companies} 
+            DeleteItem = {this.props.DeleteItem}
+            />    
         ));
     }
 }
 //propType fro companies
-CompaniesList.propTypes = {
-    companies : PropTypes.array.isRequired
-}
+// CompaniesList.propTypes = {
+//     companies : PropTypes.array.isRequired
+// }
 
 export default CompaniesList;

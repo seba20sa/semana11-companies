@@ -27,13 +27,14 @@ export class AddItems extends Component {
 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });   
     render() {
+        
         return (
             <form onSubmit={this.onSubmit}>
                 <h3>Create new company</h3>
                 <input 
                     type="text" 
                     name="id"
-                    style={{display: 'block', padding: '5px', margin: '5px 0px'}} 
+                    style={{flex: '10', padding: '5px', margin: '5px 0px'}} 
                     placeholder="ID..." 
                     value = {this.state.id}
                     onChange={this.onChange}
@@ -41,7 +42,7 @@ export class AddItems extends Component {
                 <input 
                     type="text" 
                     name="buildings"
-                    style={{display: 'block', padding: '5px', margin: '10px 0px'}} 
+                    style={{flex: '10', padding: '5px', margin: '10px 0px'}} 
                     placeholder="Buildings..." 
                     value = {this.state.buildings}
                     onChange={this.onChange}
@@ -49,7 +50,7 @@ export class AddItems extends Component {
                 <input 
                     type="text" 
                     name="boilers"
-                    style={{display: 'block', padding: '5px', margin: '10px 0px'}} 
+                    style={{flex: '10', padding: '5px', margin: '10px 0px'}} 
                     placeholder="Boilers..." 
                     value = {this.state.boilers}
                     onChange={this.onChange}
@@ -57,7 +58,7 @@ export class AddItems extends Component {
                 <input 
                     type="text" 
                     name="name"
-                    style={{display: 'block', padding: '5px', margin: '10px 0px'}} 
+                    style={{flex: '10', padding: '5px', margin: '10px 0px'}} 
                     placeholder="Name..." 
                     value = {this.state.name}
                     onChange={this.onChange}
@@ -65,7 +66,7 @@ export class AddItems extends Component {
                 <input 
                     type="text" 
                     name="email"
-                    style={{display: 'block', padding: '5px', margin: '10px 0px'}} 
+                    style={{flex: '10', padding: '5px', margin: '10px 0px'}} 
                     placeholder="Email..." 
                     value = {this.state.email}
                     onChange={this.onChange}
@@ -73,7 +74,7 @@ export class AddItems extends Component {
                 <input 
                     type="text" 
                     name="contact"
-                    style={{display: 'block', padding: '5px', margin: '10px 0px'}} 
+                    style={{flex: '10', padding: '5px', margin: '10px 0px'}} 
                     placeholder="Contact number..." 
                     value = {this.state.contact}
                     onChange={this.onChange}
@@ -81,7 +82,7 @@ export class AddItems extends Component {
                 <input 
                     type="text" 
                     name="maintenanceHours"
-                    style={{display: 'block', padding: '5px', margin: '10px 0px'}} 
+                    style={{flex: '10', padding: '5px', margin: '10px 0px'}} 
                     placeholder="Maintenance hours..." 
                     value = {this.state.maintenanceHours}
                     onChange={this.onChange}
@@ -90,8 +91,9 @@ export class AddItems extends Component {
                     type="submit" 
                     value="SUBMIT" 
                     className="btn"
-                    style={{display:'block'}}
+                    style={{flex: '1', marginLeft: '5px'}}
                 />
+                
             </form>
         )
     }

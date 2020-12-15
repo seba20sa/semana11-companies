@@ -5,8 +5,6 @@ import companiesMock from './mocks/companies.json'
 import Header from  './components/layout/Header';
 // import listItems from './components/listItems';
 import AddItems from './components/AddItems';
-// import deleteItems from './components/deleteItems';
-// import updateItems from './components/updateItems';
 
 
 
@@ -15,7 +13,10 @@ import './App.css'
 class App extends Component {
 // state of mocks has to be called from mocks folder
 state = {companiesMock}
-
+//Delete metod returns the documents by leaving out the one selected by ID.
+DeleteItem = (id) => {
+  this.setState({companiesMock: [...this.state.companiesMock.filter(company => company.id !== id)]})
+}
 
 //Add method returns newCompany and sets its state according to the imputs. 
 AddItems = ({ id, buildings, boilers, name, email, contact, maintenanceHours }) => {
@@ -28,7 +29,7 @@ AddItems = ({ id, buildings, boilers, name, email, contact, maintenanceHours }) 
     contact,
     maintenanceHours
   }
-  this.setState({ companiesMock: [...this.state.companiesMock], newCompany })
+  this.setState({ companiesMock: [...this.state.companiesMock, newCompany] })
 }
 
 //components returned the show function takes the mock state
@@ -36,10 +37,11 @@ AddItems = ({ id, buildings, boilers, name, email, contact, maintenanceHours }) 
       return (
        <div className="App">
        <Header />
-       <CompaniesList companiesMock={this.state.companiesMock} />
-       <AddItems AddItems={this.AddItems} />
-
-       
+       <
+        CompaniesList companiesMock={this.state.companiesMock} 
+        DeleteItem = {this.DeleteItem}
+       />       
+       <AddItems AddItems={this.AddItems} />       
        
        </div>
             
