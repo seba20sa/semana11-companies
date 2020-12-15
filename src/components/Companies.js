@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 // takes params and renders them. add key values (companies' id)
 class CompaniesList extends Component {
     render() {        
-        return this.props.companies.map((companies) => (
+        return this.props.companiesMock.map((companies) => (
             <CompanyItem key={companies.id} companies={companies} />    
         ));
     }
 }
-//proptype fro companies
+//propType fro companies
 CompaniesList.propTypes = {
     companies : PropTypes.array.isRequired
 }

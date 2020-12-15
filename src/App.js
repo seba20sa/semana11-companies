@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import CompaniesList from './components/Companies'
+import companiesMock from './mocks/companies.json'
 // import { render } from 'react-dom';
 import Header from  './components/layout/Header';
 // import listItems from './components/listItems';
-// import addItems from './components/addItems';
+import AddItems from './components/AddItems';
 // import deleteItems from './components/deleteItems';
 // import updateItems from './components/updateItems';
 
@@ -12,34 +13,33 @@ import Header from  './components/layout/Header';
 import './App.css'
 
 class App extends Component {
-// state of mocks has to be called with router from mocks folder
-state = {
-  companies: [
-      { "id": 1,
-        "buildings": ["building 1", "unique towers", "white castle"],
-        "boilers": ["a2343", "b2345"],
-        "name": "Wolff, Heidenreich and Heller",
-        "email": "lhayer0@reuters.com",
-        "contact": 4097416582,
-        "maintenanceHours": 79,    
-    },
-    {   "id": 2,
-        "buildings": [ "renault towers"],
-        "boilers": ["d43", "d96"],
-        "name": "Buildings INC",
-        "email": "notiene@reuters.com",
-        "contact": 3238772355,
-        "maintenanceHours": 49,    
-    }
-    
-  ]
+// state of mocks has to be called from mocks folder
+state = {companiesMock}
+
+
+//Add method returns newCompany and sets its state according to the imputs. 
+AddItems = ({ id, buildings, boilers, name, email, contact, maintenanceHours }) => {
+  const newCompany = {
+    id,
+    buildings,
+    boilers,
+    name,
+    email,
+    contact,
+    maintenanceHours
+  }
+  this.setState({ companiesMock: [...this.state.companiesMock], newCompany })
 }
-//components returned
+
+//components returned the show function takes the mock state
   render() {      
       return (
        <div className="App">
-       <Header />         
-       <CompaniesList companies={this.state.companies} />
+       <Header />
+       <AddItems AddItems={this.AddItems} />
+
+       <CompaniesList companiesMock={this.state.companiesMock} />
+       
        </div>
             
       );

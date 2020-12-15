@@ -18,3 +18,5 @@ module.exports = [
         "maintenanceHours": 49    
     }
 ];
+
+export default CompaniesList;
