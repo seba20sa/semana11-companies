@@ -36,9 +36,10 @@ AddItems = ({ id, buildings, boilers, name, email, contact, maintenanceHours }) 
       return (
        <div className="App">
        <Header />
+       <CompaniesList companiesMock={this.state.companiesMock} />
        <AddItems AddItems={this.AddItems} />
 
-       <CompaniesList companiesMock={this.state.companiesMock} />
+       
        
        </div>
             

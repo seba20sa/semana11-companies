@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 
 // 
 export class CompanyItem extends Component {
     render() {
         //
-        const {id} = this.props.companies;
+        // const {id} = this.props.companies;
         return (
             <div style={CompanyItemStyle}>
                 <p>Id: {this.props.companies.id}</p>                
