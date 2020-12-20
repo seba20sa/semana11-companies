@@ -10,11 +10,35 @@ export class AddItems extends Component {
         email: '',
         contact: '',
         maintenanceHours: '' 
+    };
+    //Check if props had been changed
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.isEditing && this.props.isEditing !== prevProps.isEditing) {
+            this.handleEdit(this.props.companyToEdit);
+        }
     }
+
+    handleEdit = (companyToEdit) => {
+        this.setState({
+            id: companyToEdit.id,
+            buildings: companyToEdit.buildings,
+            boilers: companyToEdit.boilers,
+            name: companyToEdit.name,
+            email: companyToEdit.email,
+            contact: companyToEdit.contact,
+            maintenanceHours: companyToEdit.maintenanceHours
+        });
+    };
+
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.AddItems(this.state);
-        this.setState({
+        if(this.props.isEditing) {
+            this.props.editCompany(this.state);
+        } else {
+            this.props.AddItems(this.state);
+        }
+        
+        return this.setState({
             id: '',
             buildings: '',
             boilers: '',
@@ -27,10 +51,11 @@ export class AddItems extends Component {
 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value });   
     render() {
+        const { isEditing } = this.props 
         
         return (
             <form onSubmit={this.onSubmit}>
-                <h3>Create new company</h3>
+                <h3>{isEditing ? 'Edit Company' : 'Create new company'}</h3>
                 <input 
                     type="text" 
                     name="id"
@@ -92,7 +117,7 @@ export class AddItems extends Component {
                     value="SUBMIT" 
                     className="btn"
                     style={{flex: '1', marginLeft: '5px'}}
-                />
+                />               
                 
             </form>
         )
